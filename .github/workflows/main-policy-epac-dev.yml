@@ -3,7 +3,7 @@ name: epac-dev-flow
 on:
   push:
     branches:
-      - 'epacVersionUpgrade'
+      - 'dev-upgrade'
   workflow_dispatch:
     inputs:
       pacEnvironment:
