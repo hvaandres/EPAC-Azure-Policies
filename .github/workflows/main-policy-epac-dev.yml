@@ -1,94 +1,115 @@
 name: epac-dev-flow
 
-env:
-  pacEnvironment: mg-policy-dev # Change this to a PAC environment name
-  definitionsRootFolder: Definitions
-  planFolder: Output
-  epac_pinned_version: '10.7.1' # set latest or specific version
-  az_pinned_version: '12.5.0' # set latest or specific version
-  graph_pinned_version: '0.13.0' # set latest or specific version
-  resources_pinned_version: '6.16.1' # set latest or specific version
- 
-on:  
-  push:    
-    branches:      
+on:
+  push:
+    branches:
       - 'epacVersionUpgrade'
   workflow_dispatch:
+    inputs:
+      pacEnvironment:
+        description: 'PAC Environment'
+        default: 'mg-policy-dev'
+      definitionsRootFolder:
+        description: 'Definitions Root Folder'
+        default: 'Definitions'
+      planFolder:
+        description: 'Plan Folder'
+        default: 'Output'
+      epac_pinned_version:
+        description: 'EPAC Pinned Version'
+        default: '10.7.1'
+      az_pinned_version:
+        description: 'AZ Pinned Version'
+        default: '12.5.0'
+      graph_pinned_version:
+        description: 'Graph Pinned Version'
+        default: '0.13.0'
+      resources_pinned_version:
+        description: 'Resources Pinned Version'
+        default: '6.16.1'
+
+env:
+  pacEnvironment: ${{ inputs.pacEnvironment }}
+  definitionsRootFolder: ${{ inputs.definitionsRootFolder }}
+  planFolder: ${{ inputs.planFolder }}
+  epac_pinned_version: ${{ inputs.epac_pinned_version }}
+  az_pinned_version: ${{ inputs.az_pinned_version }}
+  graph_pinned_version: ${{ inputs.graph_pinned_version }}
+  resources_pinned_version: ${{ inputs.resources_pinned_version }}
 
 jobs:
   preConfig:
-      runs-on: ubuntu-latest
-      outputs:
-        definitionsRootFolder: ${{ steps.preConfigStep.outputs.definitionsRootFolder }}
-        pacEnvironment: ${{ steps.preConfigStep.outputs.pacEnvironment }}
-        planFolder: ${{ steps.preConfigStep.outputs.planFolder }}   
-        epac_pinned_version: ${{ steps.preConfigStep.outputs.epac_pinned_version }}   
-        az_pinned_version: ${{ steps.preConfigStep.outputs.az_pinned_version }}
-        graph_pinned_version: ${{ steps.preConfigStep.outputs.graph_pinned_version }}
-        resources_pinned_version: ${{ steps.preConfigStep.outputs.resources_pinned_version }}
-      steps:
-        - name: preConfig inputs passed to the reusable workflow
-          id: preConfigStep
-          run: |
-            echo "definitionsRootFolder=$definitionsRootFolder" >> $GITHUB_OUTPUT
-            echo "pacEnvironment=$pacEnvironment" >> $GITHUB_OUTPUT
-            echo "planFolder=$planFolder" >> $GITHUB_OUTPUT
-            echo "epac_pinned_version=$epac_pinned_version"
-            echo "epac_pinned_version=$epac_pinned_version" >> $GITHUB_OUTPUT
-            echo "az_pinned_version=$az_pinned_version"
-            echo "az_pinned_version=$az_pinned_version" >> $GITHUB_OUTPUT
-            echo "graph_pinned_version=$graph_pinned_version"
-            echo "graph_pinned_version=$graph_pinned_version" >> $GITHUB_OUTPUT
-            echo "resources_pinned_version=$resources_pinned_version"
-            echo "resources_pinned_version=$resources_pinned_version" >> $GITHUB_OUTPUT
+    runs-on: ubuntu-latest
+    outputs:
+      definitionsRootFolder: ${{ steps.preConfigStep.outputs.definitionsRootFolder }}
+      pacEnvironment: ${{ steps.preConfigStep.outputs.pacEnvironment }}
+      planFolder: ${{ steps.preConfigStep.outputs.planFolder }}
+      epac_pinned_version: ${{ steps.preConfigStep.outputs.epac_pinned_version }}
+      az_pinned_version: ${{ steps.preConfigStep.outputs.az_pinned_version }}
+      graph_pinned_version: ${{ steps.preConfigStep.outputs.graph_pinned_version }}
+      resources_pinned_version: ${{ steps.preConfigStep.outputs.resources_pinned_version }}
+    steps:
+      - name: Set preConfig outputs
+        id: preConfigStep
+        run: |
+          echo "definitionsRootFolder=${{ env.definitionsRootFolder }}" >> $GITHUB_OUTPUT
+          echo "pacEnvironment=${{ env.pacEnvironment }}" >> $GITHUB_OUTPUT
+          echo "planFolder=${{ env.planFolder }}" >> $GITHUB_OUTPUT
+          echo "epac_pinned_version=${{ env.epac_pinned_version }}" >> $GITHUB_OUTPUT
+          echo "az_pinned_version=${{ env.az_pinned_version }}" >> $GITHUB_OUTPUT
+          echo "graph_pinned_version=${{ env.graph_pinned_version }}" >> $GITHUB_OUTPUT
+          echo "resources_pinned_version=${{ env.resources_pinned_version }}" >> $GITHUB_OUTPUT
+
   epac-build:
-      name: epac build
-      needs: [preConfig]
-      permissions:
-        id-token: write
-        contents: read
-        pull-requests: write
-      uses: ./.github/workflows/job-epac-build.yml
-      with:
-          definitionsRootFolder: ${{ needs.preConfig.outputs.definitionsRootFolder }}
-          pacEnvironment: ${{ needs.preConfig.outputs.pacEnvironment }}
-          planFolder: ${{ needs.preConfig.outputs.planFolder }}
-          epac_pinned_version: ${{ needs.preConfig.outputs.epac_pinned_version }}
-          az_pinned_version: ${{ needs.preConfig.outputs.az_pinned_version }}
-          graph_pinned_version: ${{ needs.preConfig.outputs.graph_pinned_version }}
-          resources_pinned_version: ${{ needs.preConfig.outputs.resources_pinned_version }}
-      secrets: inherit
+    name: EPAC Build
+    needs: preConfig
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    uses: ./.github/workflows/job-epac-build.yml
+    with:
+      definitionsRootFolder: ${{ needs.preConfig.outputs.definitionsRootFolder }}
+      pacEnvironment: ${{ needs.preConfig.outputs.pacEnvironment }}
+      planFolder: ${{ needs.preConfig.outputs.planFolder }}
+      epac_pinned_version: ${{ needs.preConfig.outputs.epac_pinned_version }}
+      az_pinned_version: ${{ needs.preConfig.outputs.az_pinned_version }}
+      graph_pinned_version: ${{ needs.preConfig.outputs.graph_pinned_version }}
+      resources_pinned_version: ${{ needs.preConfig.outputs.resources_pinned_version }}
+    secrets: inherit
+
   epac-deployPolicy:
-      name: epac deploy policy
-      needs: [epac-build, preConfig]
-      permissions:
-          id-token: write
-          contents: read
-          pull-requests: write
-      uses: ./.github/workflows/job-epac-deployPolicy.yml
-      with:
-        definitionsRootFolder: ${{ needs.preConfig.outputs.definitionsRootFolder }}
-        pacEnvironment: ${{ needs.preConfig.outputs.pacEnvironment }}
-        planFolder: ${{ needs.preConfig.outputs.planFolder }}
-        epac_pinned_version: ${{ needs.preConfig.outputs.epac_pinned_version }}
-        az_pinned_version: ${{ needs.preConfig.outputs.az_pinned_version }}
-        graph_pinned_version: ${{ needs.preConfig.outputs.graph_pinned_version }}
-        resources_pinned_version: ${{ needs.preConfig.outputs.resources_pinned_version }}
-      secrets: inherit
+    name: EPAC Deploy Policy
+    needs: [epac-build, preConfig]
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    uses: ./.github/workflows/job-epac-deployPolicy.yml
+    with:
+      definitionsRootFolder: ${{ needs.preConfig.outputs.definitionsRootFolder }}
+      pacEnvironment: ${{ needs.preConfig.outputs.pacEnvironment }}
+      planFolder: ${{ needs.preConfig.outputs.planFolder }}
+      epac_pinned_version: ${{ needs.preConfig.outputs.epac_pinned_version }}
+      az_pinned_version: ${{ needs.preConfig.outputs.az_pinned_version }}
+      graph_pinned_version: ${{ needs.preConfig.outputs.graph_pinned_version }}
+      resources_pinned_version: ${{ needs.preConfig.outputs.resources_pinned_version }}
+    secrets: inherit
+
   epac-deployRoles:
-      name: epac deploy policy
-      needs: [epac-build, preConfig, epac-deployPolicy]
-      permissions:
-          id-token: write
-          contents: read
-          pull-requests: write
-      uses: ./.github/workflows/job-epac-deployRoles.yml
-      with:
-        definitionsRootFolder: ${{ needs.preConfig.outputs.definitionsRootFolder }}
-        pacEnvironment: ${{ needs.preConfig.outputs.pacEnvironment }}
-        planFolder: ${{ needs.preConfig.outputs.planFolder }}
-        epac_pinned_version: ${{ needs.preConfig.outputs.epac_pinned_version }}
-        az_pinned_version: ${{ needs.preConfig.outputs.az_pinned_version }}
-        graph_pinned_version: ${{ needs.preConfig.outputs.graph_pinned_version }}
-        resources_pinned_version: ${{ needs.preConfig.outputs.resources_pinned_version }}
-      secrets: inherit
+    name: EPAC Deploy Roles
+    needs: [epac-build, preConfig, epac-deployPolicy]
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    uses: ./.github/workflows/job-epac-deployRoles.yml
+    with:
+      definitionsRootFolder: ${{ needs.preConfig.outputs.definitionsRootFolder }}
+      pacEnvironment: ${{ needs.preConfig.outputs.pacEnvironment }}
+      planFolder: ${{ needs.preConfig.outputs.planFolder }}
+      epac_pinned_version: ${{ needs.preConfig.outputs.epac_pinned_version }}
+      az_pinned_version: ${{ needs.preConfig.outputs.az_pinned_version }}
+      graph_pinned_version: ${{ needs.preConfig.outputs.graph_pinned_version }}
+      resources_pinned_version: ${{ needs.preConfig.outputs.resources_pinned_version }}
+    secrets: inherit
