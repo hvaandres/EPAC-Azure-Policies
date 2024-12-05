@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
+  "name": "Deny-Storage-ResourceAccessRulesTenantId",
+  "properties": {
+    "displayName": "Resource Access Rules Tenants should be restricted for Storage Accounts",
+    "description": "Azure Storage accounts should restrict the resource access rule for service-level network ACLs to service from the same AAD tenant. Enforce this for increased data exfiltration protection.",
+    "mode": "All",
+    "metadata": {
+      "alzCloudEnvironments": [
+        "AzureCloud",
+        "AzureChinaCloud",
+        "AzureUSGovernment"
+      ],
+      "version": "1.0.0",
+      "category": "Storage",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/"
+    },
+    "parameters": {
+      "effect": {
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "defaultValue": "Deny",
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "greater": 0,
+            "count": {
+              "field": "Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*]"
+            }
+          },
+          {
+            "field": "Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*].tenantId",
+            "notEquals": "[subscription().tenantId]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}

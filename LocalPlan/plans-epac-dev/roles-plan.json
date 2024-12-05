@@ -1,0 +1,551 @@
+{
+  "pacOwnerId": "95e21193-319e-41e5-a413-656cc1601895",
+  "roleAssignments": {
+    "added": [
+      {
+        "roleDisplayName": "Network Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Private-DNS-Zones': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure Azure PaaS services to use private DNS zones",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Private-DNS-Zones"
+      },
+      {
+        "roleDisplayName": "Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Private-DNS-Zones': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure Azure PaaS services to use private DNS zones",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Private-DNS-Zones"
+      },
+      {
+        "roleDisplayName": "Private DNS Zone Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Private-DNS-Zones': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/b12aa53e-6015-4669-85d0-8515ebb3ae7f",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure Azure PaaS services to use private DNS zones",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Private-DNS-Zones"
+      },
+      {
+        "roleDisplayName": "Network Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Private-DNS-Zones': additional Role Assignment deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure Azure PaaS services to use private DNS zones",
+        "scope": "/subscriptions/connectivity--subscription--id",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Private-DNS-Zones"
+      },
+      {
+        "roleDisplayName": "Virtual Machine Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-ALZ-Decomm': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enforce ALZ Decommissioned Guardrails",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-ALZ-Decomm"
+      },
+      {
+        "roleDisplayName": "Virtual Machine Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Backup': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure backup on virtual machines without a given tag to a new recovery services vault with a default policy",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Backup"
+      },
+      {
+        "roleDisplayName": "Backup Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Backup': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/5e467623-bb1f-42f4-a55d-6e525e11384b",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure backup on virtual machines without a given tag to a new recovery services vault with a default policy",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Backup"
+      },
+      {
+        "roleDisplayName": "Azure Kubernetes Service Contributor Role",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AKS-Policy': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy Azure Policy Add-on to Azure Kubernetes Service clusters",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AKS-Policy"
+      },
+      {
+        "roleDisplayName": "Azure Kubernetes Service Policy Add-on Deployment",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AKS-Policy': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18ed5180-3e48-46fd-8541-4ea054d57064",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy Azure Policy Add-on to Azure Kubernetes Service clusters",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AKS-Policy"
+      },
+      {
+        "roleDisplayName": "Network Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enable-DDoS-VNET': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Virtual networks should be protected by Azure DDoS Network Protection",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enable-DDoS-VNET"
+      },
+      {
+        "roleDisplayName": "Log Analytics Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AzSqlDb-Auditing': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure SQL servers to have auditing enabled to Log Analytics workspace",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AzSqlDb-Auditing"
+      },
+      {
+        "roleDisplayName": "SQL Security Manager",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AzSqlDb-Auditing': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure SQL servers to have auditing enabled to Log Analytics workspace",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AzSqlDb-Auditing"
+      },
+      {
+        "roleDisplayName": "Virtual Machine Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Backup': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure backup on virtual machines without a given tag to a new recovery services vault with a default policy",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Backup"
+      },
+      {
+        "roleDisplayName": "Backup Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Backup': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/5e467623-bb1f-42f4-a55d-6e525e11384b",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure backup on virtual machines without a given tag to a new recovery services vault with a default policy",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Backup"
+      },
+      {
+        "roleDisplayName": "Storage Account Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL"
+      },
+      {
+        "roleDisplayName": "SQL Server Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL"
+      },
+      {
+        "roleDisplayName": "Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL"
+      },
+      {
+        "roleDisplayName": "SQL Managed Instance Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL"
+      },
+      {
+        "roleDisplayName": "SQL Security Manager",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-SQL-Threat': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy Threat Detection on SQL servers",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-SQL-Threat"
+      },
+      {
+        "roleDisplayName": "SQL DB Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-SQL-TDE': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/9b7fa17d-e63e-47b0-bb0a-15c516ac86ec",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy TDE on SQL servers",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-SQL-TDE"
+      },
+      {
+        "roleDisplayName": "Security Admin",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy Microsoft Defender for Cloud configuration",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config"
+      },
+      {
+        "roleDisplayName": "Azure Kubernetes Service Policy Add-on Deployment",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18ed5180-3e48-46fd-8541-4ea054d57064",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy Microsoft Defender for Cloud configuration",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config"
+      },
+      {
+        "roleDisplayName": "Azure Kubernetes Service Contributor Role",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy Microsoft Defender for Cloud configuration",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config"
+      },
+      {
+        "roleDisplayName": "Kubernetes Agent Operator",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/5e93ba01-8f92-4c7a-b12a-801e3df23824",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy Microsoft Defender for Cloud configuration",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config"
+      },
+      {
+        "roleDisplayName": "Defender Kubernetes Agent Operator",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/8bb6f106-b146-4ee6-a3f9-b9c5a96e0ae5",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy Microsoft Defender for Cloud configuration",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config"
+      },
+      {
+        "roleDisplayName": "Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy Microsoft Defender for Cloud configuration",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config"
+      },
+      {
+        "roleDisplayName": "Owner",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy Microsoft Defender for Cloud configuration",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config"
+      },
+      {
+        "roleDisplayName": "Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDEndpoints': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "[Preview]: Deploy Microsoft Defender for Endpoint agent",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDEndpoints"
+      },
+      {
+        "roleDisplayName": "Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-OssDb': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure Advanced Threat Protection to be enabled on open-source relational databases",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-OssDb"
+      },
+      {
+        "roleDisplayName": "SQL Security Manager",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-SqlAtp': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure Azure Defender to be enabled on SQL Servers and SQL Managed Instances",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-SqlAtp"
+      },
+      {
+        "roleDisplayName": "Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-ACSB': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enforce Azure Compute Security Baseline compliance auditing",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Enforce-ACSB"
+      },
+      {
+        "roleDisplayName": "Monitoring Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AzActivity-Log': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure Azure Activity logs to stream to specified Log Analytics workspace",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AzActivity-Log"
+      },
+      {
+        "roleDisplayName": "Log Analytics Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AzActivity-Log': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Configure Azure Activity logs to stream to specified Log Analytics workspace",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-AzActivity-Log"
+      },
+      {
+        "roleDisplayName": "Monitoring Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Resource-Diag': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy-Resource-Diag",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Resource-Diag"
+      },
+      {
+        "roleDisplayName": "Log Analytics Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Resource-Diag': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Deploy-Resource-Diag",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-Resource-Diag"
+      },
+      {
+        "roleDisplayName": "Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Monitoring': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enable Azure Monitor for VMs",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Monitoring"
+      },
+      {
+        "roleDisplayName": "Monitoring Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Monitoring': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enable Azure Monitor for VMs",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Monitoring"
+      },
+      {
+        "roleDisplayName": "Virtual Machine Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Monitoring': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enable Azure Monitor for VMs",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Monitoring"
+      },
+      {
+        "roleDisplayName": "User Access Administrator",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Monitoring': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enable Azure Monitor for VMs",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Monitoring"
+      },
+      {
+        "roleDisplayName": "Log Analytics Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Monitoring': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enable Azure Monitor for VMs",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VM-Monitoring"
+      },
+      {
+        "roleDisplayName": "Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VMSS-Monitoring': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enable Azure Monitor for Virtual Machine Scale Sets",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VMSS-Monitoring"
+      },
+      {
+        "roleDisplayName": "Monitoring Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VMSS-Monitoring': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enable Azure Monitor for Virtual Machine Scale Sets",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VMSS-Monitoring"
+      },
+      {
+        "roleDisplayName": "Virtual Machine Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VMSS-Monitoring': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enable Azure Monitor for Virtual Machine Scale Sets",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VMSS-Monitoring"
+      },
+      {
+        "roleDisplayName": "User Access Administrator",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VMSS-Monitoring': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enable Azure Monitor for Virtual Machine Scale Sets",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VMSS-Monitoring"
+      },
+      {
+        "roleDisplayName": "Log Analytics Contributor",
+        "properties": {
+          "description": "Policy Assignment '/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VMSS-Monitoring': Role Assignment required by Policy, deployed by: 'epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev'",
+          "roleDefinitionId": "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+          "principalId": null,
+          "principalType": "ServicePrincipal"
+        },
+        "assignmentDisplayName": "Enable Azure Monitor for Virtual Machine Scale Sets",
+        "scope": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev",
+        "assignmentId": "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev/providers/Microsoft.Authorization/policyAssignments/Deploy-VMSS-Monitoring"
+      }
+    ],
+    "removed": [],
+    "numberOfChanges": 45,
+    "updated": []
+  },
+  "createdOn": "2024-11-19 15:23:51Z"
+}

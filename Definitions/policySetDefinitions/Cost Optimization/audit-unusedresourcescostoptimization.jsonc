@@ -1,0 +1,95 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
+  "name": "Audit-UnusedResourcesCostOptimization",
+  "properties": {
+    "displayName": "Unused resources driving cost should be avoided",
+    "description": "Optimize cost by detecting unused but chargeable resources. Leverage this Azure Policy Initiative as a cost control tool to reveal orphaned resources that are contributing cost.",
+    "metadata": {
+      "category": "Cost Optimization",
+      "alzCloudEnvironments": [
+        "AzureCloud",
+        "AzureChinaCloud",
+        "AzureUSGovernment"
+      ],
+      "version": "2.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/"
+    },
+    "parameters": {
+      "effectDisks": {
+        "allowedValues": [
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Audit",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy for Microsoft.Compute/disks",
+          "displayName": "Disks Effect"
+        },
+        "type": "String"
+      },
+      "effectPublicIpAddresses": {
+        "allowedValues": [
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Audit",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy for Microsoft.Network/publicIpAddresses",
+          "displayName": "PublicIpAddresses Effect"
+        },
+        "type": "String"
+      },
+      "effectServerFarms": {
+        "allowedValues": [
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Audit",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy for Microsoft.Web/serverfarms",
+          "displayName": "ServerFarms Effect"
+        },
+        "type": "String"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "AuditDisksUnusedResourcesCostOptimization",
+        "policyDefinitionName": "Audit-Disks-UnusedResourcesCostOptimization",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('effectDisks')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "AuditPublicIpAddressesUnusedResourcesCostOptimization",
+        "policyDefinitionName": "Audit-PublicIpAddresses-UnusedResourcesCostOptimization",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('effectPublicIpAddresses')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "AuditServerFarmsUnusedResourcesCostOptimization",
+        "policyDefinitionName": "Audit-ServerFarms-UnusedResourcesCostOptimization",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('effectServerFarms')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "AuditAzureHybridBenefitUnusedResourcesCostOptimization",
+        "policyDefinitionName": "Audit-AzureHybridBenefit",
+        "parameters": {
+          "effect": {
+            "value": "Audit"
+          }
+        }
+      }
+    ]
+  }
+}

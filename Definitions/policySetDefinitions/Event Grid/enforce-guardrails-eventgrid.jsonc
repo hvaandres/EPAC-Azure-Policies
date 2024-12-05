@@ -1,0 +1,162 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
+  "name": "Enforce-Guardrails-EventGrid",
+  "properties": {
+    "displayName": "Enforce recommended guardrails for Event Grid",
+    "description": "This policy initiative is a group of policies that ensures Event Grid is compliant per regulated Landing Zones.",
+    "metadata": {
+      "category": "Event Grid",
+      "alzCloudEnvironments": [
+        "AzureCloud",
+        "AzureChinaCloud",
+        "AzureUSGovernment"
+      ],
+      "version": "1.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/"
+    },
+    "parameters": {
+      "eventGridLocalAuth": {
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "eventGridPartnerNamespaceLocalAuth": {
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "eventGridPartnerNamespaceModifyLocalAuth": {
+        "allowedValues": [
+          "Modify",
+          "Disabled"
+        ],
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "eventGridTopicLocalAuth": {
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "eventGridTopicModifyLocalAuth": {
+        "allowedValues": [
+          "Modify",
+          "Disabled"
+        ],
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "eventGridDomainModifyLocalAuth": {
+        "allowedValues": [
+          "Modify",
+          "Disabled"
+        ],
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "eventGridDomainModifyPublicNetworkAccess": {
+        "allowedValues": [
+          "Modify",
+          "Disabled"
+        ],
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "eventGridTopicModifyPublicNetworkAccess": {
+        "allowedValues": [
+          "Modify",
+          "Disabled"
+        ],
+        "defaultValue": "Modify",
+        "type": "string"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "Modify-EventGrid-Partner-Namespace-Local-Auth",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2dd0e8b9-4289-4bb0-b813-1883298e9924",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventGridPartnerNamespaceModifyLocalAuth')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Modify-EventGrid-Domain-Local-Auth",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8ac2748f-3bf1-4c02-a3b6-92ae68cf75b1",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventGridDomainModifyLocalAuth')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Deny-EventGrid-Topic-Local-Auth",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ae9fb87f-8a17-4428-94a4-8135d431055c",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventGridTopicLocalAuth')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Modify-EventGrid-Topic-Local-Auth",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1c8144d9-746a-4501-b08c-093c8d29ad04",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventGridTopicModifyLocalAuth')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Deny-EventGrid-Partner-Namespace-Local-Auth",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8632b003-3545-4b29-85e6-b2b96773df1e",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventGridPartnerNamespaceLocalAuth')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Deny-EventGrid-Local-Auth",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8bfadddb-ee1c-4639-8911-a38cb8e0b3bd",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventGridLocalAuth')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Modify-EventGrid-Domain-Public-Network-Access",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/898e9824-104c-4965-8e0e-5197588fa5d4",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventGridDomainModifyPublicNetworkAccess')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Modify-EventGrid-Topic-Public-Network-Access",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/36ea4b4b-0f7f-4a54-89fa-ab18f555a172",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventGridTopicModifyPublicNetworkAccess')]"
+          }
+        }
+      }
+    ]
+  }
+}

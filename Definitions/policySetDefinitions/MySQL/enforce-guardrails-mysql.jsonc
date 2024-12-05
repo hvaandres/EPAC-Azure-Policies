@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
+  "name": "Enforce-Guardrails-MySQL",
+  "properties": {
+    "displayName": "Enforce recommended guardrails for MySQL",
+    "description": "This policy initiative is a group of policies that ensures MySQL is compliant per regulated Landing Zones.",
+    "metadata": {
+      "category": "MySQL",
+      "alzCloudEnvironments": [
+        "AzureCloud",
+        "AzureChinaCloud",
+        "AzureUSGovernment"
+      ],
+      "version": "1.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/"
+    },
+    "parameters": {
+      "mySqlInfraEncryption": {
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "mySqlAdvThreatProtection": {
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "Dine-MySql-Adv-Threat-Protection",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/80ed5239-4122-41ed-b54a-6f1fa7552816",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('mySqlAdvThreatProtection')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Deny-MySql-Infra-Encryption",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3a58212a-c829-4f13-9872-6371df2fd0b4",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('mySqlInfraEncryption')]"
+          }
+        }
+      }
+    ]
+  }
+}

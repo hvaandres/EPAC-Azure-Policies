@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
+  "name": "Enforce-Guardrails-PostgreSQL",
+  "properties": {
+    "displayName": "Enforce recommended guardrails for PostgreSQL",
+    "description": "This policy initiative is a group of policies that ensures PostgreSQL is compliant per regulated Landing Zones.",
+    "metadata": {
+      "category": "PostgreSQL",
+      "alzCloudEnvironments": [
+        "AzureCloud",
+        "AzureChinaCloud",
+        "AzureUSGovernment"
+      ],
+      "version": "1.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/"
+    },
+    "parameters": {
+      "postgreSqlAdvThreatProtection": {
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "Dine-PostgreSql-Adv-Threat-Protection",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/db048e65-913c-49f9-bb5f-1084184671d3",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('postgreSqlAdvThreatProtection')]"
+          }
+        }
+      }
+    ]
+  }
+}

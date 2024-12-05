@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
+  "name": "DenyAction-ActivityLogs",
+  "properties": {
+    "displayName": "DenyAction implementation on Activity Logs",
+    "description": "This is a DenyAction implementation policy on Activity Logs.",
+    "mode": "Indexed",
+    "metadata": {
+      "category": "Monitoring",
+      "alzCloudEnvironments": [
+        "AzureCloud",
+        "AzureChinaCloud",
+        "AzureUSGovernment"
+      ],
+      "version": "1.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/",
+      "deprecated": false
+    },
+    "parameters": {},
+    "policyRule": {
+      "if": {
+        "field": "type",
+        "equals": "Microsoft.Resources/subscriptions/providers/diagnosticSettings"
+      },
+      "then": {
+        "effect": "denyAction",
+        "details": {
+          "actionNames": [
+            "delete"
+          ]
+        }
+      }
+    }
+  }
+}

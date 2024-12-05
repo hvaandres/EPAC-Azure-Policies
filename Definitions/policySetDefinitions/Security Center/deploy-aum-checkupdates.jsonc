@@ -1,0 +1,146 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
+  "name": "Deploy-AUM-CheckUpdates",
+  "properties": {
+    "displayName": "Configure periodic checking for missing system updates on azure virtual machines and Arc-enabled virtual machines",
+    "description": "Configure auto-assessment (every 24 hours) for OS updates. You can control the scope of assignment according to machine subscription, resource group, location or tag. Learn more about this for Windows: https://aka.ms/computevm-windowspatchassessmentmode, for Linux: https://aka.ms/computevm-linuxpatchassessmentmode.",
+    "metadata": {
+      "category": "Security Center",
+      "alzCloudEnvironments": [
+        "AzureCloud"
+      ],
+      "version": "1.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/"
+    },
+    "parameters": {
+      "assessmentMode": {
+        "allowedValues": [
+          "ImageDefault",
+          "AutomaticByPlatform"
+        ],
+        "defaultValue": "AutomaticByPlatform",
+        "metadata": {
+          "description": "Assessment mode for the machines.",
+          "displayName": "Assessment mode"
+        },
+        "type": "String"
+      },
+      "tagOperator": {
+        "allowedValues": [
+          "All",
+          "Any"
+        ],
+        "defaultValue": "Any",
+        "metadata": {
+          "description": "Matching condition for resource tags",
+          "displayName": "Tag operator"
+        },
+        "type": "String"
+      },
+      "locations": {
+        "defaultValue": [],
+        "metadata": {
+          "description": "The list of locations from which machines need to be targeted.",
+          "displayName": "Machines locations",
+          "strongType": "location"
+        },
+        "type": "Array"
+      },
+      "tagValues": {
+        "defaultValue": {},
+        "metadata": {
+          "description": "The list of tags that need to matched for getting target machines.",
+          "displayName": "Tags on machines"
+        },
+        "type": "Object"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "azureUpdateManagerVmCheckUpdateWindows",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/59efceea-0c96-497e-a4a1-4eb2290dac15",
+        "parameters": {
+          "assessmentMode": {
+            "value": "[parameters('assessmentMode')]"
+          },
+          "tagOperator": {
+            "value": "[parameters('tagOperator')]"
+          },
+          "locations": {
+            "value": "[parameters('locations')]"
+          },
+          "tagValues": {
+            "value": "[parameters('tagValues')]"
+          },
+          "osType": {
+            "value": "Windows"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "azureUpdateManagerVmCheckUpdateLinux",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/59efceea-0c96-497e-a4a1-4eb2290dac15",
+        "parameters": {
+          "assessmentMode": {
+            "value": "[parameters('assessmentMode')]"
+          },
+          "tagOperator": {
+            "value": "[parameters('tagOperator')]"
+          },
+          "locations": {
+            "value": "[parameters('locations')]"
+          },
+          "tagValues": {
+            "value": "[parameters('tagValues')]"
+          },
+          "osType": {
+            "value": "Linux"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "azureUpdateManagerVmArcCheckUpdateWindows",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bfea026e-043f-4ff4-9d1b-bf301ca7ff46",
+        "parameters": {
+          "assessmentMode": {
+            "value": "[parameters('assessmentMode')]"
+          },
+          "tagOperator": {
+            "value": "[parameters('tagOperator')]"
+          },
+          "locations": {
+            "value": "[parameters('locations')]"
+          },
+          "tagValues": {
+            "value": "[parameters('tagValues')]"
+          },
+          "osType": {
+            "value": "Windows"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "azureUpdateManagerVmArcCheckUpdateLinux",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bfea026e-043f-4ff4-9d1b-bf301ca7ff46",
+        "parameters": {
+          "assessmentMode": {
+            "value": "[parameters('assessmentMode')]"
+          },
+          "tagOperator": {
+            "value": "[parameters('tagOperator')]"
+          },
+          "locations": {
+            "value": "[parameters('locations')]"
+          },
+          "tagValues": {
+            "value": "[parameters('tagValues')]"
+          },
+          "osType": {
+            "value": "Linux"
+          }
+        }
+      }
+    ]
+  }
+}

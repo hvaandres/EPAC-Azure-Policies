@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
+  "name": "a9b426fe-8856-4945-8600-18c5dd1cca2a",
+  "properties": {
+    "displayName": "Configure container registries to disable repository scoped access token.",
+    "description": "Disable repository scoped access tokens for your registry so that repositories are not accessible by tokens. Disabling local authentication methods like admin user, repository scoped access tokens and anonymous pull improves security by ensuring that container registries exclusively require Azure Active Directory identities for authentication. Learn more at: https://aka.ms/acr/authentication.",
+    "mode": "All",
+    "metadata": {
+      "category": "Container Registry",
+      "version": "1.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev"
+    },
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Modify",
+          "Disabled"
+        ],
+        "defaultValue": "Modify",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Enable or disable the execution of the policy"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.ContainerRegistry/registries/tokens"
+          },
+          {
+            "field": "Microsoft.ContainerRegistry/registries/tokens/status",
+            "notequals": "disabled"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]",
+        "details": {
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+          ],
+          "operations": [
+            {
+              "value": "disabled",
+              "field": "Microsoft.ContainerRegistry/registries/tokens/status",
+              "operation": "addOrReplace"
+            }
+          ],
+          "conflictEffect": "audit"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
+  "name": "Enforce-Guardrails-DataExplorer",
+  "properties": {
+    "displayName": "Enforce recommended guardrails for Data Explorer",
+    "description": "This policy initiative is a group of policies that ensures Data Explorer is compliant per regulated Landing Zones.",
+    "metadata": {
+      "category": "Azure Data Explorer",
+      "alzCloudEnvironments": [
+        "AzureCloud",
+        "AzureChinaCloud",
+        "AzureUSGovernment"
+      ],
+      "version": "1.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/"
+    },
+    "parameters": {
+      "adxEncryption": {
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "adxDoubleEncryption": {
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "adxSku": {
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "adxModifyPublicNetworkAccess": {
+        "allowedValues": [
+          "Modify",
+          "Disabled"
+        ],
+        "defaultValue": "Modify",
+        "type": "string"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "Deny-ADX-Sku-without-PL-Support",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1fec9658-933f-4b3e-bc95-913ed22d012b",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('adxSku')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Deny-ADX-Double-Encryption",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ec068d99-e9c7-401f-8cef-5bdde4e6ccf1",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('adxDoubleEncryption')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Deny-ADX-Encryption",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f4b53539-8df9-40e4-86c6-6b607703bd4e",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('adxEncryption')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Modify-ADX-Public-Network-Access",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7b32f193-cb28-4e15-9a98-b9556db0bafa",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('adxModifyPublicNetworkAccess')]"
+          }
+        }
+      }
+    ]
+  }
+}

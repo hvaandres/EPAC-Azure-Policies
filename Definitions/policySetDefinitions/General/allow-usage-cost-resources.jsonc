@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
+  "name": "0a2ebd47-3fb9-4735-a006-b7f31ddadd9f",
+  "properties": {
+    "displayName": "Allow Usage Cost Resources",
+    "description": "Allow resources to be deployed except MCPP, M365.",
+    "metadata": {
+      "category": "General",
+      "version": "1.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev"
+    },
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "NotAllowM365_Deny",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/176b7c36-ac64-4f15-a296-50bd7fafab12",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('effect')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "NotAllowMCPP_Deny",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/335d919a-dc24-4a94-b7cb-9f81b1a8156f",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('effect')]"
+          }
+        }
+      }
+    ]
+  }
+}

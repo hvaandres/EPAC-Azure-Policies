@@ -1,0 +1,159 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
+  "name": "Deploy-Diagnostics-NIC",
+  "properties": {
+    "displayName": "[Deprecated]: Deploy Diagnostic Settings for Network Interfaces to Log Analytics workspace",
+    "description": "Deploys the diagnostic settings for Network Interfaces to stream to a Log Analytics workspace when any Network Interfaces which is missing this diagnostic settings is created or updated. This policy is superseded by built-in initiative https://www.azadvertizer.net/azpolicyinitiativesadvertizer/0884adba-2312-4468-abeb-5422caed1038.html.",
+    "mode": "Indexed",
+    "metadata": {
+      "category": "Monitoring",
+      "version": "1.1.0-deprecated",
+      "alzCloudEnvironments": [
+        "AzureCloud",
+        "AzureChinaCloud",
+        "AzureUSGovernment"
+      ],
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/",
+      "deprecated": true
+    },
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      },
+      "logAnalytics": {
+        "metadata": {
+          "description": "Select Log Analytics workspace from dropdown list. If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.",
+          "displayName": "Log Analytics workspace",
+          "strongType": "omsWorkspace"
+        },
+        "type": "String"
+      },
+      "profileName": {
+        "defaultValue": "setbypolicy",
+        "metadata": {
+          "description": "The diagnostic settings profile name",
+          "displayName": "Profile name"
+        },
+        "type": "String"
+      },
+      "metricsEnabled": {
+        "allowedValues": [
+          "True",
+          "False"
+        ],
+        "defaultValue": "True",
+        "metadata": {
+          "description": "Whether to enable metrics stream to the Log Analytics workspace - True or False",
+          "displayName": "Enable metrics"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "field": "type",
+        "equals": "Microsoft.Network/networkInterfaces"
+      },
+      "then": {
+        "effect": "[parameters('effect')]",
+        "details": {
+          "type": "Microsoft.Insights/diagnosticSettings",
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+            "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
+          ],
+          "existenceCondition": {
+            "allOf": [
+              {
+                "field": "Microsoft.Insights/diagnosticSettings/metrics.enabled",
+                "equals": "true"
+              },
+              {
+                "field": "Microsoft.Insights/diagnosticSettings/workspaceId",
+                "equals": "[parameters('logAnalytics')]"
+              }
+            ]
+          },
+          "name": "[parameters('profileName')]",
+          "deployment": {
+            "properties": {
+              "parameters": {
+                "logAnalytics": {
+                  "value": "[parameters('logAnalytics')]"
+                },
+                "location": {
+                  "value": "[field('location')]"
+                },
+                "profileName": {
+                  "value": "[parameters('profileName')]"
+                },
+                "metricsEnabled": {
+                  "value": "[parameters('metricsEnabled')]"
+                },
+                "resourceName": {
+                  "value": "[field('name')]"
+                }
+              },
+              "mode": "Incremental",
+              "template": {
+                "parameters": {
+                  "logAnalytics": {
+                    "type": "String"
+                  },
+                  "location": {
+                    "type": "String"
+                  },
+                  "profileName": {
+                    "type": "String"
+                  },
+                  "metricsEnabled": {
+                    "type": "String"
+                  },
+                  "resourceName": {
+                    "type": "String"
+                  }
+                },
+                "contentVersion": "1.0.0.0",
+                "resources": [
+                  {
+                    "type": "Microsoft.Network/networkInterfaces/providers/diagnosticSettings",
+                    "properties": {
+                      "workspaceId": "[parameters('logAnalytics')]",
+                      "metrics": [
+                        {
+                          "category": "AllMetrics",
+                          "enabled": "[parameters('metricsEnabled')]",
+                          "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                          }
+                        }
+                      ]
+                    },
+                    "location": "[parameters('location')]",
+                    "apiVersion": "2017-05-01-preview",
+                    "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
+                    "dependsOn": []
+                  }
+                ],
+                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "variables": {},
+                "outputs": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

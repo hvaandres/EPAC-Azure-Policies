@@ -1,0 +1,100 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
+  "name": "Enforce-Guardrails-BotService",
+  "properties": {
+    "displayName": "Enforce recommended guardrails for Bot Service",
+    "description": "This policy initiative is a group of policies that ensures Bot Service is compliant per regulated Landing Zones.",
+    "metadata": {
+      "category": "Bot Service",
+      "alzCloudEnvironments": [
+        "AzureCloud",
+        "AzureChinaCloud",
+        "AzureUSGovernment"
+      ],
+      "version": "1.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/"
+    },
+    "parameters": {
+      "botServiceValidUri": {
+        "allowedValues": [
+          "Audit",
+          "audit",
+          "Deny",
+          "deny",
+          "Disabled",
+          "disabled"
+        ],
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "botServiceIsolatedMode": {
+        "allowedValues": [
+          "Audit",
+          "audit",
+          "Deny",
+          "deny",
+          "Disabled",
+          "disabled"
+        ],
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "botServiceLocalAuth": {
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "botServicePrivateLink": {
+        "allowedValues": [
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Audit",
+        "type": "string"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "Deny-BotService-Valid-Uri",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6164527b-e1ee-4882-8673-572f425f5e0a",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('botServiceValidUri')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Deny-BotService-Isolated-Mode",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/52152f42-0dda-40d9-976e-abb1acdd611e",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('botServiceIsolatedMode')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Deny-BotService-Local-Auth",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ffea632e-4e3a-4424-bf78-10e179bb2e1a",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('botServiceLocalAuth')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionReferenceId": "Audit-BotService-Private-Link",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ad5621d6-a877-4407-aa93-a950b428315e",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('botServicePrivateLink')]"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-assignment-schema.json",
+  "nodeName": "/root",
+  "definitionEntry": {
+    "policyId": "/providers/Microsoft.Authorization/policyDefinitions/ff05e24e-195c-447e-b322-5e90c9f9f366",
+    "displayName": "Container registries should have repository scoped access token disabled.",
+    "nonComplianceMessages": [
+      {
+        "policyDefinitionReferenceId": null,
+        "message": "In order to have this working, you will need to make sure that we have access token disabled."
+      }
+    ]
+  },
+  "assignment": {
+    "name": "0ea3878a873d498b92298955",
+    "displayName": "Container registries should have repository scoped access token disabled.",
+    "description": "This will ensure that we have access token disabled."
+  },
+  "metadata": {
+    "parameterScopes": {}
+  },
+  "overrides": [],
+  "resourceSelectors": [],
+  "scope": {
+    "epac-dev": [
+      "/subscriptions/8527688f-e0b9-4e86-8b1b-02407e5047aa"
+    ]
+  }
+}

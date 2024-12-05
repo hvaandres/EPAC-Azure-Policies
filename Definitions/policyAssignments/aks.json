@@ -1,0 +1,19 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-assignment-schema.json",
+    "nodeName": "/Loc/",
+    "assignment": {
+        "name": "allowed-locations",
+        "displayName": "aks-test",
+        "description": "Sets the aks-test"
+    },
+    "definitionEntry": {
+        "policySetName": "a8640138-9b0a-4a28-b8cb-1666c838647d",
+        "displayName": "This initiative includes the policies for the Kubernetes cluster pod security baseline standards. This policy is generally available for Kubernetes Service (AKS), and preview for Azure Arc enabled Kubernetes. For instructions on using this policy, visit https://aka.ms/kubepolicydoc."
+    },
+    "scope": {
+        "epac-dev": [
+            "/providers/Microsoft.Management/managementGroups/mg-Epac-Dev"
+        ]
+    }
+
+}

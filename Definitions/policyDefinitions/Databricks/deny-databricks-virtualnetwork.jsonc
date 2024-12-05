@@ -1,0 +1,62 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
+  "name": "Deny-Databricks-VirtualNetwork",
+  "properties": {
+    "displayName": "Deny Databricks workspaces without Vnet injection",
+    "description": "Enforces the use of vnet injection for Databricks workspaces.",
+    "mode": "Indexed",
+    "metadata": {
+      "category": "Databricks",
+      "alzCloudEnvironments": [
+        "AzureCloud"
+      ],
+      "version": "1.0.0",
+      "deployedBy": "epac/95e21193-319e-41e5-a413-656cc1601895/epac-dev",
+      "source": "https://github.com/Azure/Enterprise-Scale/"
+    },
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Audit",
+          "Disabled",
+          "Deny"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Databricks/workspaces"
+          },
+          {
+            "anyOf": [
+              {
+                "field": "Microsoft.DataBricks/workspaces/parameters.customVirtualNetworkId.value",
+                "exists": false
+              },
+              {
+                "field": "Microsoft.DataBricks/workspaces/parameters.customPublicSubnetName.value",
+                "exists": false
+              },
+              {
+                "field": "Microsoft.DataBricks/workspaces/parameters.customPrivateSubnetName.value",
+                "exists": false
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}
