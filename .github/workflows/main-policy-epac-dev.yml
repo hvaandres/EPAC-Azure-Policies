@@ -1,17 +1,20 @@
 name: epac-dev-flow
+
 env:
-  pacEnvironment: epac-dev # Change this to a PAC environment name
+  pacEnvironment: mg-policy-dev # Change this to a PAC environment name
   definitionsRootFolder: Definitions
   planFolder: Output
-  epac_pinned_version: '9.1.5' # set latest or specific version
-  az_pinned_version: '11.5.0' # set latest or specific version
+  epac_pinned_version: '10.7.1' # set latest or specific version
+  az_pinned_version: '12.5.0' # set latest or specific version
   graph_pinned_version: '0.13.0' # set latest or specific version
   resources_pinned_version: '6.16.1' # set latest or specific version
+ 
 on:  
   push:    
     branches:      
-      - 'epac-dev-assignments'
+      - 'epacVersionUpgrade'
   workflow_dispatch:
+
 jobs:
   preConfig:
       runs-on: ubuntu-latest
