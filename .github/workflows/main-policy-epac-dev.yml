@@ -49,6 +49,8 @@ jobs:
       graph_pinned_version: ${{ steps.preConfigStep.outputs.graph_pinned_version }}
       resources_pinned_version: ${{ steps.preConfigStep.outputs.resources_pinned_version }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Set preConfig outputs
         id: preConfigStep
         run: |
