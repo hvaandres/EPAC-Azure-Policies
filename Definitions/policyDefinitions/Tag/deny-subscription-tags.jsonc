@@ -1,0 +1,90 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
+    "name": "ih-deny-resource-group-tags",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "apiVersion": "2021-06-01",
+    "properties": {
+      "displayName": "Require specific tags on resource groups",
+      "policyType": "Custom",
+      "mode": "All",
+      "description": "Enforces the existence of specific tags on resource groups.",
+      "metadata": {
+        "version": "1.0.0",
+        "category": "Tags"
+      },
+      "parameters": {
+        "tag-IHBilling": {
+          "type": "String",
+          "metadata": {
+            "displayName": "IHBilling",
+            "description": "Billing tag"
+          }
+        },
+        "tag-IHContact": {
+          "type": "String",
+          "metadata": {
+            "displayName": "IHContact",
+            "description": "Contact tag"
+          }
+        },
+        "tag-IHDepartment": {
+          "type": "String",
+          "metadata": {
+            "displayName": "IHDepartment",
+            "description": "Department tag"
+          }
+        },
+        "tag-IHEnvironment": {
+          "type": "String",
+          "metadata": {
+            "displayName": "IHEnvironment",
+            "description": "Environment tag"
+          }
+        },
+        "tag-IHSupport": {
+          "type": "String",
+          "metadata": {
+            "displayName": "IHSupport",
+            "description": "Support tag"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "allOf": [
+            {
+              "field": "type",
+              "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+            },
+            {
+              "anyOf": [
+                {
+                  "field": "[concat('tags[', parameters('tag-IHBilling'), ']')]",
+                  "exists": "false"
+                },
+                {
+                  "field": "[concat('tags[', parameters('tag-IHContact'), ']')]",
+                  "exists": "false"
+                },
+                {
+                  "field": "[concat('tags[', parameters('tag-IHDepartment'), ']')]",
+                  "exists": "false"
+                },
+                {
+                  "field": "[concat('tags[', parameters('tag-IHEnvironment'), ']')]",
+                  "exists": "false"
+                },
+                {
+                  "field": "[concat('tags[', parameters('tag-IHSupport'), ']')]",
+                  "exists": "false"
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "effect": "deny"
+        }
+      }
+    }
+  }

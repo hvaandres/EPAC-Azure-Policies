@@ -1,0 +1,82 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
+    "name": "ih-deny-resource-group-tags",
+    "properties": {
+      "description": "This policy denies resource groups in the shared services management groups who don't have the IH Tags set.",
+      "displayName": "IH - Deny missing tags from resource group",
+      "metadata": {
+        "version": "1.0.0",
+        "category": "Intermountain",
+        "createdBy": "cloudops@imail.org",
+        "createdOn": "2025-03-25",
+        "ih_wiki": "https://intermountainhealth.atlassian.net/l/cp/AeofUDGJ"
+      },
+      "parameters": {
+        "tag-IHBilling": {
+          "type": "String",
+          "metadata": {
+            "description": "The IHBilling tag is missing from this resource group.",
+            "displayName": "Tag IHBilling"
+          }
+        },
+        "tag-IHContact": {
+          "type": "String",
+          "metadata": {
+            "description": "The IHContact tag is missing from this resource group.",
+            "displayName": "Tag IHContact"
+          }
+        },
+        "tag-IHDepartment": {
+          "type": "String",
+          "metadata": {
+            "description": "The IHDepartment tag is missing from this resource group.",
+            "displayName": "Tag IHDepartment"
+          }
+        },
+        "tag-IHEnvironment": {
+          "type": "String",
+          "metadata": {
+            "description": "The IHEnvironment tag is missing from this resource group.",
+            "displayName": "Tag IHEnvironment"
+          }
+        },
+        "tag-IHSupport": {
+          "type": "String",
+          "metadata": {
+            "description": "The IHSupport tag is missing from this resource group.",
+            "displayName": "Tag IHSupport"
+          }
+        }
+      },
+      "policyDefinitionGroups": [
+        {
+          "name": "deny-missing-ih-tags",
+          "description": "This policy denies resource groups who don't have the IH mandatory tags in shared services management groups."
+        }
+      ],
+      "policyDefinitions": [
+        {
+          "policyDefinitionName": "ih-deny-resource-group-tags",
+          "policyDefinitionReferenceId": "IHTags",
+          "groupNames": ["deny-missing-ih-tags"],
+          "parameters": {
+            "tag-IHBilling": {
+              "value": "[parameters('tag-IHBilling')]"
+            },
+            "tag-IHContact": {
+              "value": "[parameters('tag-IHContact')]"
+            },
+            "tag-IHDepartment": {
+              "value": "[parameters('tag-IHDepartment')]"
+            },
+            "tag-IHEnvironment": {
+              "value": "[parameters('tag-IHEnvironment')]"
+            },
+            "tag-IHSupport": {
+              "value": "[parameters('tag-IHSupport')]"
+            }
+          }
+        }
+      ]
+    }
+  }
