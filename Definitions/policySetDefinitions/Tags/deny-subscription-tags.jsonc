@@ -1,79 +1,79 @@
 {
     "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
-    "name": "ih-deny-resource-group-tags",
+    "name": "deny-resource-group-tags",
     "properties": {
       "description": "This policy denies resource groups in the shared services management groups who don't have the IH Tags set.",
       "displayName": "IH - Deny missing tags from resource group",
       "metadata": {
         "version": "1.0.0",
-        "category": "Intermountain",
-        "createdBy": "cloudops@imail.org",
+        "category": "aharo",
+        "createdBy": "aharo@aharo.com",
         "createdOn": "2025-03-25",
-        "ih_wiki": "https://intermountainhealth.atlassian.net/l/cp/AeofUDGJ"
+        "ih_wiki": "https://aharo.test"
       },
       "parameters": {
         "tag-IHBilling": {
           "type": "String",
           "metadata": {
-            "description": "The IHBilling tag is missing from this resource group.",
-            "displayName": "Tag IHBilling"
+            "description": "The Billing tag is missing from this resource group.",
+            "displayName": "Tag Billing"
           }
         },
-        "tag-IHContact": {
+        "tag-Contact": {
           "type": "String",
           "metadata": {
-            "description": "The IHContact tag is missing from this resource group.",
-            "displayName": "Tag IHContact"
+            "description": "The Contact tag is missing from this resource group.",
+            "displayName": "Tag Contact"
           }
         },
-        "tag-IHDepartment": {
+        "tag-Department": {
           "type": "String",
           "metadata": {
-            "description": "The IHDepartment tag is missing from this resource group.",
-            "displayName": "Tag IHDepartment"
+            "description": "The Department tag is missing from this resource group.",
+            "displayName": "Tag Department"
           }
         },
-        "tag-IHEnvironment": {
+        "tag-Environment": {
           "type": "String",
           "metadata": {
-            "description": "The IHEnvironment tag is missing from this resource group.",
-            "displayName": "Tag IHEnvironment"
+            "description": "The Environment tag is missing from this resource group.",
+            "displayName": "Tag Environment"
           }
         },
-        "tag-IHSupport": {
+        "tag-Support": {
           "type": "String",
           "metadata": {
-            "description": "The IHSupport tag is missing from this resource group.",
-            "displayName": "Tag IHSupport"
+            "description": "The Support tag is missing from this resource group.",
+            "displayName": "Tag Support"
           }
         }
       },
       "policyDefinitionGroups": [
         {
-          "name": "deny-missing-ih-tags",
-          "description": "This policy denies resource groups who don't have the IH mandatory tags in shared services management groups."
+          "name": "deny-missing--tags",
+          "description": "This policy denies resource groups who don't have the  mandatory tags in shared services management groups."
         }
       ],
       "policyDefinitions": [
         {
-          "policyDefinitionName": "ih-deny-resource-group-tags",
-          "policyDefinitionReferenceId": "IHTags",
-          "groupNames": ["deny-missing-ih-tags"],
+          "policyDefinitionName": "deny-resource-group-tags",
+          "policyDefinitionReferenceId": "Tags",
+          "groupNames": ["deny-missing-tags"],
           "parameters": {
-            "tag-IHBilling": {
-              "value": "[parameters('tag-IHBilling')]"
+            "tag-Billing": {
+              "value": "[parameters('tag-Billing')]"
             },
-            "tag-IHContact": {
-              "value": "[parameters('tag-IHContact')]"
+            "tag-Contact": {
+              "value": "[parameters('tag-Contact')]"
             },
-            "tag-IHDepartment": {
-              "value": "[parameters('tag-IHDepartment')]"
+            "tag-Department": {
+              "value": "[parameters('tag-Department')]"
             },
-            "tag-IHEnvironment": {
-              "value": "[parameters('tag-IHEnvironment')]"
+            "tag-Environment": {
+              "value": "[parameters('tag-Environment')]"
             },
-            "tag-IHSupport": {
-              "value": "[parameters('tag-IHSupport')]"
+            "tag-Support": {
+              "value": "[parameters('tag-Support')]"
             }
           }
         }

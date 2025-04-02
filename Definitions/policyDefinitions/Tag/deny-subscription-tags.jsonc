@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
-    "name": "ih-deny-resource-group-tags",
+    "name": "deny-resource-group-tags",
     "type": "Microsoft.Authorization/policyDefinitions",
     "apiVersion": "2021-06-01",
     "properties": {
@@ -13,38 +13,38 @@
         "category": "Tags"
       },
       "parameters": {
-        "tag-IHBilling": {
+        "tag-Billing": {
           "type": "String",
           "metadata": {
-            "displayName": "IHBilling",
+            "displayName": "Billing",
             "description": "Billing tag"
           }
         },
-        "tag-IHContact": {
+        "tag-Contact": {
           "type": "String",
           "metadata": {
-            "displayName": "IHContact",
+            "displayName": "Contact",
             "description": "Contact tag"
           }
         },
-        "tag-IHDepartment": {
+        "tag-Department": {
           "type": "String",
           "metadata": {
-            "displayName": "IHDepartment",
+            "displayName": "Department",
             "description": "Department tag"
           }
         },
-        "tag-IHEnvironment": {
+        "tag-Environment": {
           "type": "String",
           "metadata": {
-            "displayName": "IHEnvironment",
+            "displayName": "Environment",
             "description": "Environment tag"
           }
         },
-        "tag-IHSupport": {
+        "tag-Support": {
           "type": "String",
           "metadata": {
-            "displayName": "IHSupport",
+            "displayName": "Support",
             "description": "Support tag"
           }
         }
@@ -59,23 +59,23 @@
             {
               "anyOf": [
                 {
-                  "field": "[concat('tags[', parameters('tag-IHBilling'), ']')]",
+                  "field": "[concat('tags[', parameters('tag-Billing'), ']')]",
                   "exists": "false"
                 },
                 {
-                  "field": "[concat('tags[', parameters('tag-IHContact'), ']')]",
+                  "field": "[concat('tags[', parameters('tag-Contact'), ']')]",
                   "exists": "false"
                 },
                 {
-                  "field": "[concat('tags[', parameters('tag-IHDepartment'), ']')]",
+                  "field": "[concat('tags[', parameters('tag-Department'), ']')]",
                   "exists": "false"
                 },
                 {
-                  "field": "[concat('tags[', parameters('tag-IHEnvironment'), ']')]",
+                  "field": "[concat('tags[', parameters('tag-Environment'), ']')]",
                   "exists": "false"
                 },
                 {
-                  "field": "[concat('tags[', parameters('tag-IHSupport'), ']')]",
+                  "field": "[concat('tags[', parameters('tag-Support'), ']')]",
                   "exists": "false"
                 }
               ]

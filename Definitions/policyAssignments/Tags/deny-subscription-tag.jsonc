@@ -8,20 +8,20 @@
           {
             "nodeName": "resource-group-tags",
             "assignment": {
-              "name": "ih-deny-rg-tags",
-              "displayName": "IH - Deny resource groups without IH mandatory tags in shared services management groups",
-              "description": "This policy denies resource groups that don't have the IH mandatory tags in shared services management groups."
+              "name": "deny-rg-tags",
+              "displayName": " Deny resource groups without  mandatory tags in shared services management groups",
+              "description": "This policy denies resource groups that don't have the  mandatory tags in shared services management groups."
             },
             "definitionEntry": {
-              "policySetName": "ih-deny-resource-group-tags",
-              "description": "This policy denies resource groups that don't have the IH mandatory tags in shared services management groups."
+              "policySetName": "-deny-resource-group-tags",
+              "description": "This policy denies resource groups that don't have the  mandatory tags in shared services management groups."
             },
             "parameters": {
-              "tag-IHBilling": "IHBilling",
-              "tag-IHContact": "IHContact",
-              "tag-IHDepartment": "IHDepartment",
-              "tag-IHEnvironment": "IHEnvironment",
-              "tag-IHSupport": "IHSupport"
+              "tag-Billing": "Billing",
+              "tag-Contact": "Contact",
+              "tag-Department": "Department",
+              "tag-Environment": "Environment",
+              "tag-Support": "Support"
             },
             "nonComplianceMessages": [
               {
@@ -30,12 +30,8 @@
             ],
             "scope": {
               "mg-policy-dev": [
-                "/providers/Microsoft.Management/managementGroups/mg-policy-dev"
+                "/providers/Microsoft.Management/managementGroups/mg-dev"
               ]
-              // Uncomment the following lines if needed
-              // "mg-intermediate": [
-              // "/providers/Microsoft.Management/managementGroups/mg-shared-services"
-              // ]
             }
           }
         ]
