@@ -118,18 +118,38 @@
     },
     "policyRule": {
       "if": {
-        "allOf": [
+        "anyOf": [
           {
-            "value": "[resourceGroup().name]",
-            "notEquals": ""
+            "allOf": [
+              {
+                "value": "[resourceGroup().name]",
+                "notEquals": ""
+              },
+              {
+                "value": "[array(concat('Microsoft.Resources/subscriptions/resourceGroups'))]",
+                "notEquals": "[array(field('type'))]"
+              },
+              {
+                "field": "type",
+                "notIn": "[parameters('allowedResourceTypes')]"
+              }
+            ]
           },
           {
-            "value": "[array(concat('Microsoft.Resources/subscriptions/resourceGroups'))]",
-            "notEquals": "[array(field('type'))]"
-          },
-          {
-            "field": "type",
-            "notIn": "[parameters('allowedResourceTypes')]"
+            "allOf": [
+              {
+                "value": "[resourceGroup().name]",
+                "equals": ""
+              },
+              {
+                "field": "type",
+                "notIn": "[parameters('allowedResourceTypes')]"
+              },
+              {
+                "field": "type",
+                "notEquals": "Microsoft.Resources/subscriptions"
+              }
+            ]
           }
         ]
       },
