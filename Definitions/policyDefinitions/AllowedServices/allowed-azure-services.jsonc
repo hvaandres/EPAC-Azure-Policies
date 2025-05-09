@@ -1,18 +1,18 @@
 {
   "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
-  "name": "allowed-az-services",
+  "name": "allowed-az-external-services",
   "properties": {
     "policyType": "Custom",
     "mode": "Indexed",
-    "displayName": "allowed-az-services",
-    "description": "This policy will prevent the creation of a resource type that is not approved by Enterprise Architecture and Cloud Cybersecurity. This is a whitelist type policy, all resources mentioned herein are allowed, all others are denied.",
+    "displayName": "allowed-az-external-services",
+    "description": "This policy prevents the creation of resource types that are not approved by Enterprise Architecture and Cloud Cybersecurity. It acts as a whitelist: only the specified resource types are allowed, all others are denied.",
     "metadata": {
       "category": "AHTest",
       "version": "1.2.0"
     },
     "parameters": {
       "effect": {
-        "type": "string",
+        "type": "String",
         "allowedValues": [
           "Audit",
           "Deny",
@@ -84,7 +84,6 @@
           "Microsoft.CostManagement/*",
           "Microsoft.Maintenance/*",
           "Microsoft.Management/*",
-          "Microsoft.Portal/*",
           "Microsoft.Resources/*",
           "Microsoft.PowerBIDedicated/*",
           "Microsoft.Automation/automationAccounts/*",
@@ -126,12 +125,10 @@
                 "notEquals": ""
               },
               {
-                "value": "[array(concat('Microsoft.Resources/subscriptions/resourceGroups'))]",
-                "notEquals": "[array(field('type'))]"
-              },
-              {
-                "field": "type",
-                "notIn": "[parameters('allowedResourceTypes')]"
+                "not": {
+                  "field": "type",
+                  "in": "[parameters('allowedResourceTypes')]"
+                }
               }
             ]
           },
