@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
   "name": "allowed-az-external-services",
   "properties": {
-    "policyType": "Custom",
+    "policyType": "Custom", // "BuiltIn" or "Custom"
     "mode": "Indexed",
     "displayName": "allowed-az-external-services",
     "description": "This policy prevents the creation of resource types that are not approved by Enterprise Architecture and Cloud Cybersecurity. It acts as a whitelist: only the specified resource types are allowed, all others are denied.",
