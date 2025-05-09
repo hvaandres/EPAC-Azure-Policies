@@ -1,368 +1,141 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
-    "name": "allowed-az-services",
-    "properties": {
-      "policyType": "Custom",
-      "mode": "Indexed",
-      "displayName": "allowed-az-services",
-      "description": "This policy will prevent the creation of a resource type that is not approved by Enterprise Architecture and Cloud Cybersecurity. This is a whitelist type policy, all resources mentioned herein are allowed, all others are denied.",
-      "metadata": {
-        "category": "AHTest",
-        "version": "1.1.0"
-      },
-      //"Mode": "All",
-      "parameters": {
-        "effect": {
-            "type": "string",
-            "allowedValues": [
-                "Audit",
-                "Deny",
-                "Disabled"
-            ],
-            "defaultValue": "Deny",
-            "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-            }
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-definition-schema.json",
+  "name": "allowed-az-services",
+  "properties": {
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "displayName": "allowed-az-services",
+    "description": "This policy will prevent the creation of a resource type that is not approved by Enterprise Architecture and Cloud Cybersecurity. This is a whitelist type policy, all resources mentioned herein are allowed, all others are denied.",
+    "metadata": {
+      "category": "AHTest",
+      "version": "1.2.0"
+    },
+    "parameters": {
+      "effect": {
+        "type": "string",
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Enable or disable the execution of the policy"
         }
       },
-      "policyRule": {
-        "if": {
-          "allOf": [
-            {
-              "field": "type",
-              "notLike": "GitHub.Network/networkSettings"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Subscription/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.ResourceGroup/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Authorization/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.AnalysisServices/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.HealthcareApis/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.APIManagement/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.App/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.App/managedEnvironments/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Batch/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.CognitiveServices/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.ContainerRegistry/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DataBox/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DataFactory/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Databricks/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DataLakeStore/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DataLakeAnalytics/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.EventGrid/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.EventHub/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.HDInsight/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.BotService/botServices"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.KeyVault/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Logic/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.MachineLearningServices/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Media/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Monitor/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DBforMySQL/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.NotificationHubs/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DBforPostgreSQL/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Purview/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Search/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.ServiceBus/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.RecoveryServices/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Sql/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Synapse/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.AzureStack/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Storage/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.PolicyInsights/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Portal/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Support/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Network/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Security/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Compute/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Web/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.AppConfiguration/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DomainRegistration/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.AAD/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.AlertsManagement/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.OperationalInsights/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.OperationsManagement/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Cache/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.ManagedIdentity/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Insights/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Billing/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.CostManagement/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Maintenance/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Management/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Portal/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Resources/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.PowerBIDedicated/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Automation/automationAccounts/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.NetApp/netAppAccounts/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Kubernetes/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DocumentDB/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.ChangeAnalysis/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Advisor/configurations"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Advisor/recommendations"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Consumption/budgets"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Containerservice/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DevTestLab/schedules"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.GuestConfiguration/guestConfigurationAssignments"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Healthbot/healthBots"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Maps/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Classiccompute/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Machinelearning/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Bing/accounts/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Migrate/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DataMigration/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.MarketplaceOrdering/offerTypes/virtualmachine/publishers/center-for-internet-security-inc/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.Devices/IotHubs/*"
-            },
-            {
-              "field": "type",
-              "notLike": "Microsoft.DesktopVirtualization/*"
-            }
-          ]
-        },
-        "then": {
-          "effect": "[parameters('effect')]" 
+      "allowedResourceTypes": {
+        "type": "Array",
+        "defaultValue": [
+          "GitHub.Network/networkSettings",
+          "Microsoft.Subscription/*",
+          "Microsoft.ResourceGroup/*",
+          "Microsoft.Authorization/*",
+          "Microsoft.AnalysisServices/*",
+          "Microsoft.HealthcareApis/*",
+          "Microsoft.APIManagement/*",
+          "Microsoft.App/*",
+          "Microsoft.App/managedEnvironments/*",
+          "Microsoft.Batch/*",
+          "Microsoft.CognitiveServices/*",
+          "Microsoft.ContainerRegistry/*",
+          "Microsoft.DataBox/*",
+          "Microsoft.DataFactory/*",
+          "Microsoft.Databricks/*",
+          "Microsoft.DataLakeStore/*",
+          "Microsoft.DataLakeAnalytics/*",
+          "Microsoft.EventGrid/*",
+          "Microsoft.EventHub/*",
+          "Microsoft.HDInsight/*",
+          "Microsoft.BotService/botServices",
+          "Microsoft.KeyVault/*",
+          "Microsoft.Logic/*",
+          "Microsoft.MachineLearningServices/*",
+          "Microsoft.Media/*",
+          "Microsoft.Monitor/*",
+          "Microsoft.DBforMySQL/*",
+          "Microsoft.NotificationHubs/*",
+          "Microsoft.DBforPostgreSQL/*",
+          "Microsoft.Purview/*",
+          "Microsoft.Search/*",
+          "Microsoft.ServiceBus/*",
+          "Microsoft.RecoveryServices/*",
+          "Microsoft.Sql/*",
+          "Microsoft.Synapse/*",
+          "Microsoft.AzureStack/*",
+          "Microsoft.Storage/*",
+          "Microsoft.PolicyInsights/*",
+          "Microsoft.Portal/*",
+          "Microsoft.Support/*",
+          "Microsoft.Network/*",
+          "Microsoft.Security/*",
+          "Microsoft.Compute/*",
+          "Microsoft.Web/*",
+          "Microsoft.AppConfiguration/*",
+          "Microsoft.DomainRegistration/*",
+          "Microsoft.AAD/*",
+          "Microsoft.AlertsManagement/*",
+          "Microsoft.OperationalInsights/*",
+          "Microsoft.OperationsManagement/*",
+          "Microsoft.Cache/*",
+          "Microsoft.ManagedIdentity/*",
+          "Microsoft.Insights/*",
+          "Microsoft.Billing/*",
+          "Microsoft.CostManagement/*",
+          "Microsoft.Maintenance/*",
+          "Microsoft.Management/*",
+          "Microsoft.Portal/*",
+          "Microsoft.Resources/*",
+          "Microsoft.PowerBIDedicated/*",
+          "Microsoft.Automation/automationAccounts/*",
+          "Microsoft.NetApp/netAppAccounts/*",
+          "Microsoft.Kubernetes/*",
+          "Microsoft.DocumentDB/*",
+          "Microsoft.ChangeAnalysis/*",
+          "Microsoft.Advisor/configurations",
+          "Microsoft.Advisor/recommendations",
+          "Microsoft.Consumption/budgets",
+          "Microsoft.Containerservice/*",
+          "Microsoft.DevTestLab/schedules",
+          "Microsoft.GuestConfiguration/guestConfigurationAssignments",
+          "Microsoft.Healthbot/healthBots",
+          "Microsoft.Maps/*",
+          "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/*",
+          "Microsoft.Classiccompute/*",
+          "Microsoft.Machinelearning/*",
+          "Microsoft.Bing/accounts/*",
+          "Microsoft.Migrate/*",
+          "Microsoft.DataMigration/*",
+          "Microsoft.MarketplaceOrdering/offerTypes/virtualmachine/publishers/center-for-internet-security-inc/*",
+          "Microsoft.Devices/IotHubs/*",
+          "Microsoft.DesktopVirtualization/*"
+        ],
+        "metadata": {
+          "displayName": "Allowed Resource Types",
+          "description": "List of resource types that are allowed to be created"
         }
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "value": "[resourceGroup().name]",
+            "notEquals": ""
+          },
+          {
+            "value": "[array(concat('Microsoft.Resources/subscriptions/resourceGroups'))]",
+            "notEquals": "[array(field('type'))]"
+          },
+          {
+            "field": "type",
+            "notIn": "[parameters('allowedResourceTypes')]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
       }
     }
   }
-  
+}

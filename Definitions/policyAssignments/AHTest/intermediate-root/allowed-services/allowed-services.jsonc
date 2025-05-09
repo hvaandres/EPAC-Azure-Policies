@@ -1,0 +1,50 @@
+{
+    "nodeName": "allowed-services-finance-sub",
+    "assignment": {
+        "name": "allowed-az-services-finance",
+        "displayName": "Allowed Azure Services - Finance Subscription",
+        "description": "Finance-specific allowed Azure services policy"
+    },
+    "definitionEntry": {
+        "policyName": "allowed-az-services",
+        "displayName": "Allowed Azure Services for Finance Department"
+    },
+    "nonComplianceMessages": [
+        {
+            "message": "This resource type is not allowed in finance subscriptions"
+        }
+    ],
+    "parameters": {
+        "effect": {
+            "value": "Deny"
+        },
+        "allowedResourceTypes": {
+            "value": [
+                "Microsoft.Subscription/*",
+                "Microsoft.ResourceGroup/*",
+                "Microsoft.Authorization/*",
+                "Microsoft.Storage/*",
+                "Microsoft.KeyVault/*",
+                "Microsoft.Sql/*",
+                "Microsoft.DBforPostgreSQL/*",
+                "Microsoft.Network/*",
+                "Microsoft.Compute/*",
+                "Microsoft.Web/*",
+                "Microsoft.AppConfiguration/*",
+                "Microsoft.ManagedIdentity/*",
+                "Microsoft.OperationalInsights/*"
+            ]
+        }
+    },
+    "scope": {
+        "finance-subscription": [
+            "/subscriptions/00000000-0000-0000-0000-000000000003"
+        ]
+    },
+    "notScopes": {
+        "finance-subscription": [
+            "/subscriptions/00000000-0000-0000-0000-000000000003/resourceGroups/rg-finance-exempt",
+            "/subscriptions/00000000-0000-0000-0000-000000000003/resourceGroups/rg-finance-special"
+        ]
+    }
+}

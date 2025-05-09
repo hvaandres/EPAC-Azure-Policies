@@ -1,42 +1,45 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-assignment-schema.json",
-    "nodeName": "/intermediate-root/",
-    "children": [
+    "nodeName": "allowed-services-mixed",
+    "assignment": {
+        "name": "allowed-az-services-mixed",
+        "displayName": "Allowed Azure Services Assignment - Mixed Scopes",
+        "description": "Policy enforcing allowed Azure services across management groups and specific subscriptions"
+    },
+    "definitionEntry": {
+        "policyName": "allowed-az-services",
+        "displayName": "Allowed Azure Services for Mixed Environment"
+    },
+    "nonComplianceMessages": [
         {
-            "nodeName": "allowed-services/",
-            "children": [
-                { //Deploy the Allowed Regions Initiative, for resources and resource groups.
-                    "nodeName": "allowed-services",
-                    "assignment": {
-                        "name": "allowed-az-services",
-                        "displayName": "Allowed Azure Services Assignment",
-                        "description": "This policy will prevent the creation of a resource type that is not approved by Enterprise Architecture and Cloud Cybersecurity. This is a whitelist type policy, all resources mentioned herein are allowed, all others are denied."
-                    },
-                    "definitionEntry": {
-                        "policyName": "allowed-az-services",
-                        "displayName": "This policy will prevent the creation of a resource type that is not approved by Enterprise Architecture and Cloud Cybersecurity. This is a whitelist type policy, all resources mentioned herein are allowed, all others are denied."
-                    },
-                    "nonComplianceMessages": [
-                        {
-                            "message": "An attempt has been made to create a type of resource which has not been approved. Please see CCoE document: https://intermountainhealth.atlassian.net/l/cp/8x13mMop"
-                        }
-                    ],
-                    // "parameters": null
-                    "scope": {
-                        "mg-policy-dev": [ 
-                            ""
-                        ],
-                        "mg-intermediate": [ 
-                             ""
-                        ]
-                    },
-                    "notScopes": {
-                        "mg-intermediate": [ 
-                             ""
-                        ]
-                    }
-                }
-            ]
+            "message": "This resource type is not allowed in this environment"
         }
-    ]
+    ],
+    "parameters": {
+        "effect": {
+            "value": "Deny"
+        },
+        "allowedResourceTypes": {
+            "value": "[defaultValue]"
+        }
+    },
+    "scope": {
+        "mg-prod": [
+            "/providers/Microsoft.Management/managementGroups/mg-prod"
+        ],
+        "specific-subscriptions": [
+            "/subscriptions/00000000-0000-0000-0000-000000000001",
+            "/subscriptions/00000000-0000-0000-0000-000000000002"
+        ]
+    },
+    "notScopes": {
+        "mg-prod": [
+            "/providers/Microsoft.Management/managementGroups/mg-prod/resourceGroups/rg-special-case",
+            "/providers/Microsoft.Management/managementGroups/mg-prod/resourceGroups/rg-prod-exceptions"
+        ],
+        "specific-subscriptions": [
+            "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/rg-legacy-app",
+            "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/rg-sub-exceptions",
+            "/subscriptions/00000000-0000-0000-0000-000000000002/resourceGroups/rg-migration"
+        ]
+    }
 }
